@@ -38852,6 +38852,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ProfessorAkram.SimpleUnityHierarchyFolder.Runtime::ProfessorAkram.SimpleUnityHierarchyFolder.HierarchyFolder
   folderColor: 13
+--- !u!1 &876123171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6006028097031282799, guid: e9861a5f397a1dc4daec7aa50ca85ddc, type: 3}
+  m_PrefabInstance: {fileID: 7430376112878058114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &894078098
 Mesh:
   m_ObjectHideFlags: 0
@@ -82366,13 +82371,48 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6006028097031282799, guid: e9861a5f397a1dc4daec7aa50ca85ddc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7430376112878058119}
+    - targetCorrespondingSourceObject: {fileID: 6006028097031282799, guid: e9861a5f397a1dc4daec7aa50ca85ddc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7430376112878058120}
   m_SourcePrefab: {fileID: 100100000, guid: e9861a5f397a1dc4daec7aa50ca85ddc, type: 3}
 --- !u!4 &7430376112878058115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3060208962677540081, guid: e9861a5f397a1dc4daec7aa50ca85ddc, type: 3}
   m_PrefabInstance: {fileID: 7430376112878058114}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7430376112878058119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876123171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fae0ac9660829409edf08082c1a35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HelloWorld
+  Message: Hi there
+--- !u!114 &7430376112878058120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876123171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd8cd501dc69ac49bbf3cd75cc9f689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CSG.Transform.MoveTransform
+  _speed: 3.5
+  _direction: {x: 1, y: 0, z: 0}
+  _moveOnStart: 1
+  _moveOnTranslate: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
