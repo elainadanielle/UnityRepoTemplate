@@ -35,7 +35,35 @@ namespace CSG.Transform
         [SerializeField]
         [Tooltip("Direction of the object's movement")]
         private Vector3 _direction = Vector3.right;
+        
+        [SerializeField]
+        [Tooltip("Enable move on start")]
+        private bool _moveOnStart = true;
 
+        [SerializeField] [Tooltip("Use Translate to move along the object's local axes")]
+        private bool _moveOnTranslate = false;
+        
+        
+        //Runtime movement flag
+        private bool _isMoving = true;
+        
+        
+        
+        
+        public float Speed
+        {
+            get { return _speed; }
+            //validate that the speed is not greater than MAX_SPEED
+            set => _speed = Mathf.Clamp(value, 0f, MAX_SPEED);
+        }
+
+        public Vector3 Direction
+        {
+            get => _direction;
+            set => _direction = value.normalized;
+        }
+        
+        
         #endregion
 
 
@@ -44,12 +72,20 @@ namespace CSG.Transform
         // Awake is called once on initialization
         private void Awake()
         {
+            
+            //Validate initial speed and direction
+            Speed = _speed;
+            Direction = _direction;
+            
+            Debug.Log("Initialized Values: "+Speed+" "+Direction);
 
         } //end Awake()
 
         // Start is called once before the first Update
         private void Start()
         {
+            //sync initial movement
+            _isMoving = _moveOnStart;
 
         } //end Start()
 
@@ -60,23 +96,53 @@ namespace CSG.Transform
         // Update is called once per frame
         private void Update()
         {
+            if (_isMoving)
+            {
+                Move();
+                
+            }//end if(_isMoving
             
-            transform.position += _speed * Time.deltaTime * Vector3.right;
-
+            
         } //end Update()
 
         #endregion
 
-
+        #region Helpers
+        
+        
+        private void ResolveMovementValues(float? speed, Vector3? direction)
+        {
+            
+            //use the provided values if not null, otherwise keep the current Speed and Direction
+            Speed = speed ?? Speed;
+            Direction = direction ?? Direction;
+            
+        }
+        #endregion
+        
+        
         #region [ Feature / Domain Name ]
+        
 
         /// <summary>
-        /// A custom method example.
+        /// Move an object in a specified direction at a specified speed 
         /// </summary>
-        /// <param name="exampleParameter">A parameter that demonstrates passing data to the method.</param>
-        private void CustomMethod(int exampleParameter)
+        /// <param name="speed">The speed at which the object should move.</param>
+        public void Move(float? speed = null, Vector3? direction= null)
         {
-
+            ResolveMovementValues(speed, direction);
+            
+            if(_moveOnTranslate)
+            {
+                //This moves relative to the object's local axes by default
+                transform.Translate(Speed * Time.deltaTime * Direction);
+            }
+            else
+            { 
+                //move object by world position
+                transform.position += _speed * Time.deltaTime * _direction;
+            }//end if(_moveOnTranslate)
+            
         } //end CustomMethod(int)
 
         #endregion

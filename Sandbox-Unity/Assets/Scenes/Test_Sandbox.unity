@@ -82409,8 +82409,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd8cd501dc69ac49bbf3cd75cc9f689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CSG.Transform.MoveTransform
-  _speed: 5
+  _speed: 3.5
   _direction: {x: 1, y: 0, z: 0}
+  _moveOnStart: 1
+  _moveOnTranslate: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
