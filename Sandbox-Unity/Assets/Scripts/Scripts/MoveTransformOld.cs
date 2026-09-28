@@ -1,7 +1,7 @@
 /************************************************************
 * COPYRIGHT:  2026
 * PROJECT:    Sandbox
-* FILE NAME:  MoveTransform.cs
+* FILE NAME:  MoveTransformOld.cs
 * DESCRIPTION: Move the object with transform using world or translate position
 *                    
 * REVISION HISTORY:
@@ -19,7 +19,7 @@ namespace CSG.Transform
     /// <summary>
     /// What does this specific class do when I reference it in C#?
     /// </summary>
-    public class MoveTransform : MonoBehaviour
+    public class MoveTransformOld : MonoBehaviour
     {
         #region Fields & Properties
         
